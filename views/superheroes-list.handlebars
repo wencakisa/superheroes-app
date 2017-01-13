@@ -1,11 +1,11 @@
 <h1>Our superheroes: </h1>
 
 {{#if result}}
-  <ul>
+  <div class="list-group">
     {{#each result}}
-      <li><a href="/superheroes/{{id}}">{{name}}</a></li>
+      <a class="list-group-item" href="/superheroes/{{id}}">{{name}}</a>
     {{/each}}
-  </ul>
+  </div>
 {{else}}
   <h1>No superheroes yet.</h1>
 {{/if}}

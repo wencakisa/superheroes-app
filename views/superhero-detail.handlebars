@@ -1,1 +1,26 @@
 <h1>{{result.name}}</h1>
+
+{{#if result.powers}}
+<h3>Powers:</h3>
+<ul>
+  {{#each result.powers}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+{{else}}
+  <h4>This hero has no superpowers. :(</h4>
+{{/if}}
+
+{{#if result.fractions}}
+<h3>Fractions:</h3>
+<ul>
+  {{#each result.fractions}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+{{else}}
+  <h4>This hero has no fractions.</h4>
+{{/if}}
+
+<a href="/superheroes/{{result._id}}/edit" class="btn btn-md btn-warning">Edit</a>
+<a href="/superheroes/{{result._id}}" class="btn btn-md btn-danger">Delete</a>
