@@ -1,0 +1,22 @@
+{
+  "name": "superheroes-app",
+  "description": "Superheroes Express.js app (Telerik Academy Node.js course)",
+  "main": "app.js",
+  "authors": [
+    "Vencislav Tasheff"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/wencakisa/superheroes-app",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
