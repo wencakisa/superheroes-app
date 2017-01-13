@@ -1,6 +1,11 @@
 <h1>Our superheroes: </h1>
-<ul>
-  {{#each result}}
-    <li><a href="/superheroes/{{id}}">{{name}}</a></li>
-  {{/each}}
-</ul>
+
+{{#if result}}
+  <ul>
+    {{#each result}}
+      <li><a href="/superheroes/{{id}}">{{name}}</a></li>
+    {{/each}}
+  </ul>
+{{else}}
+  <h1>No superheroes yet.</h1>
+{{/if}}
