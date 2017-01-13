@@ -33,6 +33,34 @@ module.exports = (data) => {
         .then(() => {
           res.redirect('/superheroes')
         })
+    },
+    remove (req, res) {
+      let id = req.params.id
+
+      data
+        .removeSuperhero(id)
+        .then(() => {
+          res.redirect('/superheroes')
+        })
+    },
+    getEditForm (req, res) {
+      let id = req.params.id
+
+      data
+        .getSuperheroById(id)
+        .then(superhero => {
+          res.render('superhero-edit', { result: superhero })
+        })
+    },
+    edit (req, res) {
+      let id = req.params.id
+      let body = req.body
+
+      data
+        .editSuperhero(id, body)
+        .then(() => {
+          res.redirect(`/superheroes/${id}`)
+        })
     }
   }
 }

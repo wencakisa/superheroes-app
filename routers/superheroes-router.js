@@ -7,8 +7,11 @@ module.exports = (app, data) => {
   router
     .get('/', controller.getAll)
     .get('/create', controller.getCreateForm)
+    .get('/:id/edit', controller.getEditForm)
+    .post('/:id/edit', controller.edit)
     .get('/:id', controller.getById)
     .post('/', controller.create)
+    .delete('/:id', controller.remove)
 
   app.use('/superheroes', router)
 }

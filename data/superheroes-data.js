@@ -37,6 +37,30 @@ module.exports = (models) => {
             return reject(err)
           })
       })
+    },
+    editSuperhero (id, body) {
+      return new Promise((resolve, reject) => {
+        Superhero
+          .findByIdAndUpdate(id, body)
+          .then(superhero => {
+            return resolve(superhero)
+          })
+          .catch(err => {
+            return reject(err)
+          })
+      })
+    },
+    removeSuperhero (id) {
+      return new Promise((resolve, reject) => {
+        Superhero
+          .findByIdAndRemove(id)
+          .then(superhero => {
+            return resolve(superhero)
+          })
+          .catch(err => {
+            return reject(err)
+          })
+      })
     }
   }
 }
