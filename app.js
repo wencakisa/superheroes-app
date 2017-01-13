@@ -1,11 +1,13 @@
 let express = require('express')
 let exphbs = require('express-handlebars')
+let bodyParser = require('body-parser')
 
 let app = express()
 let port = 7000
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+app.use(bodyParser.urlencoded({ extended: false }))
 
 let superheroes = [
   {
@@ -34,8 +36,16 @@ superheroesRouter
       result: superheroes
     })
   })
+  .get('/create', (req, res) => {
+    res.render('superhero-create')
+  })
   .post('/', (req, res) => {
-    res.send('blabla')
+    let superhero = req.body
+    superhero.id = superheroes.length + 1
+
+    superheroes.push(superhero)
+
+    res.redirect('/')
   })
   .get('/:id', (req, res) => {
     let id = +req.params.id
