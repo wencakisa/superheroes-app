@@ -1,4 +1,4 @@
-let mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 let requiredValidationMessage = '{PATH} is required.'
 
@@ -8,7 +8,8 @@ let schema = mongoose.Schema({
     required: requiredValidationMessage,
     unique: true
   },
-  powers: [{}]
+  powers: [{}],
+  fractions: [{}]
 })
 
 mongoose.model('Superhero', schema)
